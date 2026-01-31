@@ -4,7 +4,7 @@ let RETICULAY;
 let ancho; //altura de celda
 let alto; //anchura de celda
 
-const NA = 39; // número de azulejos
+const NA = 42; // número de azulejos
 const fileName = 'tile';
 const fileExtension = '.png';
 let reglas = [];
@@ -19,22 +19,22 @@ const azulejos = [];
 let opcionesI = [];
 
 function preload() {
-    tablaReglas = loadTable('reglas.csv', 'csv', 'header');
+	tablaReglas = loadTable('reglas.csv', 'csv', 'header');
 	for (let i = 0; i < NA; i++) {
 		azulejos[i] = loadImage(`./azulejos/${fileName}${i}${fileExtension}`);
 	}
 }
 
 function setup() {
-    // Parsear reglas del CSV
-    for (let r = 0; r < tablaReglas.getRowCount(); r++) {
-        reglas.push({
-            UP: parseInt(tablaReglas.getString(r, 'UP')),
-            RIGHT: parseInt(tablaReglas.getString(r, 'RIGHT')),
-            DOWN: parseInt(tablaReglas.getString(r, 'DOWN')),
-            LEFT: parseInt(tablaReglas.getString(r, 'LEFT'))
-        });
-    }
+	// Parsear reglas del CSV
+	for (let r = 0; r < tablaReglas.getRowCount(); r++) {
+		reglas.push({
+			UP: parseInt(tablaReglas.getString(r, 'UP')),
+			RIGHT: parseInt(tablaReglas.getString(r, 'RIGHT')),
+			DOWN: parseInt(tablaReglas.getString(r, 'DOWN')),
+			LEFT: parseInt(tablaReglas.getString(r, 'LEFT'))
+		});
+	}
 
 	createCanvas(windowWidth * 0.9, windowHeight * 0.9);
 
